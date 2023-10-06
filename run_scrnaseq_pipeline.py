@@ -26,9 +26,10 @@ parser = argparse.ArgumentParser(
 parser.add_argument('samplesheet', help='path to the samplesheet CSV file')
 parser.add_argument('outdir', help='path to the output directory where to store the results')
 
-parser.add_argument('--show', action='store_true', help='Print the command without running. Useful for testing. (default: False))')
-parser.add_argument('-a', '--aligner', default='cellranger', help='aligner to use for alignment (default: cellranger))')
-parser.add_argument('-g', '--genome', default='hg38', help='genome to use for alignment (default: hg38))')
+parser.add_argument('--show', action='store_true', help='Print the command without running. Useful for testing. (default: False)')
+parser.add_argument('-a', '--aligner', default='cellranger', help='aligner to use for alignment (default: cellranger)')
+parser.add_argument('-g', '--genome', default='hg38', help='genome to use for alignment (default: hg38)')
+parser.add_argument('-p', '--protocol', default='10XV3', help='protocol used (default: 10XV3)')
 
 ## extracting the arguments
 args = parser.parse_args()
@@ -39,9 +40,13 @@ OUTDIR = args.outdir
 SAMPLESHEET = args.samplesheet
 GENOME = args.genome
 ALIGNER = args.aligner
+
 # 10x specific parameters
-PROTOCOL = '10XV3'
+PROTOCOL = args.protocol
+
+# pipeline specific parameters
 VERSION = '2.4.1'
+
 # other parameters
 LOGPATH = os.path.join(OUTDIR, 'logs')
 MAX_MEMORY="100.GB"
