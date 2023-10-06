@@ -87,10 +87,10 @@ if args.show:
     print (command)
     print ()
     warnings.warn('Only printing the command. To run the command, disable the -show flag')
+    sys.exit()
 
-## running the command
-else:
-    print ('Running the command ...')
-    os.system(command)
-    print ('Pipeline finished. ')
-    print ()
+
+print ('Running the command ...')
+os.system(command)
+print ('Pipeline finished. ')
+print ()
