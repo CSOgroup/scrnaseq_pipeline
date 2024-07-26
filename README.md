@@ -4,6 +4,8 @@ This pipeline is designed to process single cell RNA-Seq data from raw reads to 
 
 This pipeline is developed for [Oricchio Lab](https://www.epfl.ch/labs/oricchiolab/)
 
+<b> Make sure to be added to docker group to run this pipeline. Contact the maintainers !!<b>
+
 ## Usage
 ```
 Single Sell RNA-Seq pipeline
@@ -28,8 +30,11 @@ options:
 1. Human - 
     - GRCh37
     - GRCh38
+    - hg19
+    - hg38
 2. Mouse - 
     - GRCm38
+    - mm10
 
 ## Defaults
 
@@ -41,3 +46,9 @@ MAX_MEMORY="100.GB"
 MAX_CPUS=12
 ```
 
+## Sample sheet
+Remember to have the first line "exactly" as 
+sample,fastq_1,fastq_2
+
+<hr>
+Maintained by - [divyanshu srivastava] (https://github.com/divyanshusrivastava)
