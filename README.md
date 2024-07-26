@@ -23,6 +23,14 @@ options:
                         protocol used (default: 10XV3)
 ```
 
+## Genomes available
+
+1. Human - 
+    - GRCh37
+    - GRCh38
+2. Mouse - 
+    - GRCm38
+
 ## Defaults
 
 The pipeline uses the following default nextflow parameters. 
