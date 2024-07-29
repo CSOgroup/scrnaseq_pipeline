@@ -50,5 +50,10 @@ MAX_CPUS=12
 Remember to have the first line "exactly" as 
 sample,fastq_1,fastq_2
 
+## NOTE
+This pipeline runs cellranger: 7.1.0, which is incompatible Gem-X V4 librarires. The issue has been reported at
+https://github.com/nf-core/scrnaseq/issues/349
+
+
 <hr>
 Maintained by - [divyanshu srivastava] (https://github.com/divyanshusrivastava)
