@@ -45,7 +45,7 @@ ALIGNER = args.aligner
 PROTOCOL = args.protocol
 
 # pipeline specific parameters
-VERSION = '2.4.1'
+VERSION = '2.7.0'
 
 # other parameters
 LOGPATH = os.path.join(OUTDIR, 'logs')

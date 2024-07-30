@@ -1,6 +1,6 @@
 # Single Cell RNA-Seq processing pipeline
 
-This pipeline is designed to process single cell RNA-Seq data from raw reads to a count matrix. It uses [nextflow pipeline](https://nf-co.re/scrnaseq/2.4.1). 
+This pipeline is designed to process single cell RNA-Seq data from raw reads to a count matrix. It uses [nextflow pipeline](https://nf-co.re/scrnaseq/).  
 
 This pipeline is developed for [Oricchio Lab](https://www.epfl.ch/labs/oricchiolab/)
 
@@ -51,9 +51,7 @@ Remember to have the first line "exactly" as
 sample,fastq_1,fastq_2
 
 ## NOTE
-This pipeline runs cellranger: 7.1.0, which is incompatible Gem-X V4 librarires. The issue has been reported at
-https://github.com/nf-core/scrnaseq/issues/349
-
+This pipeline runs cellranger: 8.0.0.
 
 <hr>
 Maintained by - [divyanshu srivastava] (https://github.com/divyanshusrivastava)
