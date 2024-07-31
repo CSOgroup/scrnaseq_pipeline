@@ -29,7 +29,7 @@ parser.add_argument('outdir', help='path to the output directory where to store 
 parser.add_argument('--show', action='store_true', help='Print the command without running. Useful for testing. (default: False)')
 parser.add_argument('-a', '--aligner', default='cellranger', help='aligner to use for alignment (default: cellranger)')
 parser.add_argument('-g', '--genome', default='hg38', help='genome to use for alignment (default: hg38)')
-parser.add_argument('-p', '--protocol', default='10XV3', help='protocol used (default: 10XV3)')
+parser.add_argument('-p', '--protocol', default='auto', help='protocol used (default: 10XV3)')
 
 ## extracting the arguments
 args = parser.parse_args()
@@ -86,6 +86,9 @@ command += f' --max_memory {MAX_MEMORY}'
 command += f' --max_cpus {MAX_CPUS}'
 command += ' -profile docker'
 command += ' -resume'
+command += ' -with-report'
+command += ' -bg'
+
 
 print ()
 
@@ -98,5 +101,3 @@ if args.show:
 
 print ('Running the command ...')
 os.system(command)
-print ('Pipeline finished. ')
-print ()
