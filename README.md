@@ -41,7 +41,7 @@ options:
 The pipeline uses the following default nextflow parameters. 
 
 ```
-VERSION = '2.4.1'
+VERSION = '2.7.0'
 MAX_MEMORY="100.GB"
 MAX_CPUS=12
 ```
