@@ -25,33 +25,23 @@ options:
                         protocol used (default: 10XV3)
 ```
 
-## Genomes available
+## UPDATES (Date: 03 July 2025)
 
-1. Human - 
-    - GRCh37
-    - GRCh38
-    - hg19
-    - hg38
-2. Mouse - 
-    - GRCm38
-    - mm10
+- Updated nf-core pipeline version to 4.0.0 (https://nf-co.re/scrnaseq/4.0.0/)
+- The pipeline version can be over-written using the `--version` parameter.
+- Added support to run pipeline with custom reference genomes (by providing a genome.fasta and annotations.gtf file)
+- With the fasta + gtf option, the pipeline also by default saves the generates reference genoem for later uses. 
 
-## Defaults
-
-The pipeline uses the following default nextflow parameters. 
-
-```
-VERSION = '2.7.0'
-MAX_MEMORY="100.GB"
-MAX_CPUS=12
-```
 
 ## Sample sheet
 Remember to have the first line "exactly" as 
 sample,fastq_1,fastq_2
 
-## NOTE
-This pipeline runs cellranger: 8.0.0.
+## Problems ?
+- java issues? Make sure to run pipeline can see the correct java installations. This could be happening if you are inside a virtual environment where a separate installation of java exists.
+
+## TODOs
+- max cpu and max memory arguments unused 
 
 <hr>
 Maintained by - [divyanshu srivastava] (https://github.com/divyanshusrivastava)
