@@ -146,6 +146,7 @@ else:
 command += f' --protocol {PROTOCOL}'
 command += f' --max_memory {MAX_MEMORY}'
 command += f' --max_cpus {MAX_CPUS}'
+command += f' --skip_cellbender'
 command += ' -profile docker'
 command += ' -resume'
 command += ' -with-report'

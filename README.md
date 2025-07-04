@@ -30,7 +30,8 @@ options:
 - Updated nf-core pipeline version to 4.0.0 (https://nf-co.re/scrnaseq/4.0.0/)
 - The pipeline version can be over-written using the `--version` parameter.
 - Added support to run pipeline with custom reference genomes (by providing a genome.fasta and annotations.gtf file)
-- With the fasta + gtf option, the pipeline also by default saves the generates reference genoem for later uses. 
+- With the fasta + gtf option, the pipeline also by default saves the generates reference genome for later uses. 
+- CellBender call removed from pipeline, as it was taking too long to run. This can always be run separately if needed.
 
 
 ## Sample sheet
