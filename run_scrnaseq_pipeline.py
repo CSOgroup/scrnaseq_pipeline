@@ -44,10 +44,13 @@ parser.add_argument_group('OPTIONS', '''Options:
 --genome: genome to use for alignment (default: None)
 --fasta: fasta file to use for alignment (default: None)
 --gtf: gtf file to use for alignment (default: None)
---max_memory: maximum memory to use for the pipeline (default: 100.GB)
---max_cpus: maximum cpus to use for the pipeline (default: 12)
 --save_reference: save the reference genome for later use (default: True)
 --work_dir: path to the working directory (default: OUTDIR/work)
+--nextflow_args: Additional arguments to pass directly to nextflow (use -- to separate)
+
+Examples:
+  python run_scrnaseq_pipeline.py samplesheet.csv output/ --genome GRCh38 --nextflow_args -- --skip_qc --skip_vis
+  python run_scrnaseq_pipeline.py samplesheet.csv output/ --fasta ref.fa --gtf ref.gtf --nextflow_args -- --email user@example.com
 ''')
 
 parser.add_argument('samplesheet', help='path to the samplesheet CSV file')
@@ -65,9 +68,9 @@ parser.add_argument('--gtf', default=None, help='gtf file to use for alignment (
 parser.add_argument('--save_reference', default=True, action='store_true', help='save the reference genome for later use (default: True)')
 parser.add_argument('--work_dir', default=None, help='path to the working directory (default: OUTDIR/work)')
 
-# memory ram and cpus
-parser.add_argument('--max_memory', default='100.GB', help='maximum memory to use for the pipeline (default: 100.GB)')
-parser.add_argument('--max_cpus', default=12, help='maximum cpus to use for the pipeline (default: 12)')
+# Add argument for additional nextflow parameters
+parser.add_argument('--nextflow_args', nargs=argparse.REMAINDER, 
+                   help='Additional arguments to pass directly to nextflow (use -- to separate)')
 
 ## extracting the arguments
 args = parser.parse_args()
@@ -116,8 +119,6 @@ VERSION = args.version
 
 # other parameters
 LOGPATH = os.path.join(OUTDIR, 'pipeline_logs.txt')
-MAX_MEMORY = args.max_memory
-MAX_CPUS = args.max_cpus
 
 ## checking the arguments
 # OUTDIR
@@ -144,13 +145,14 @@ else:
     if args.save_reference:
         command += ' --save_reference'
 command += f' --protocol {PROTOCOL}'
-command += f' --max_memory {MAX_MEMORY}'
-command += f' --max_cpus {MAX_CPUS}'
-command += f' --skip_cellbender'
 command += ' -profile docker'
 command += ' -resume'
 command += ' -with-report'
 command += ' -bg'
+
+# Add any additional nextflow arguments provided by the user
+if args.nextflow_args:
+    command += ' ' + ' '.join(args.nextflow_args)
 
 
 print (f'Running the pipeline with the following command:')
